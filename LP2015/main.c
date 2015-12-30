@@ -19,7 +19,6 @@
  */
 int main(int argc, char** argv) {
 
-    printf("e que mano? ");
     return (EXIT_SUCCESS);
 }
 
