@@ -18,7 +18,7 @@
  * 
  */
 int main(int argc, char** argv) {
-    asdasd
+
     printf("e que mano? ");
     printf("e que mano? ");printf("e que mano? ");printf("e que mano? ");printf("e que mano? ");printf("e que mano? ");printf("e que mano? ");printf("e que mano? ");
     
