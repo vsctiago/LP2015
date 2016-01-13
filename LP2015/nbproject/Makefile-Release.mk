@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/LP_Leitura.o \
 	${OBJECTDIR}/LP_Utils.o \
 	${OBJECTDIR}/Utilizador.o \
+	${OBJECTDIR}/enume.o \
 	${OBJECTDIR}/main.o
 
 
@@ -85,6 +86,11 @@ ${OBJECTDIR}/Utilizador.o: Utilizador.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Utilizador.o Utilizador.c
+
+${OBJECTDIR}/enume.o: enume.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/enume.o enume.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
