@@ -14,6 +14,7 @@
 #ifndef ALERTA_H
 #define ALERTA_H
 
+//ESTRUTURA ALERTA
 typedef struct alerta {
     unsigned int id;
     char mensagem[100];

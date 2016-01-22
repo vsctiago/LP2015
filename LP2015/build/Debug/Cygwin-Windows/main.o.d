@@ -1,10 +1,8 @@
-build/Debug/Cygwin-Windows/main.o: main.c Utilizador.h Viagem.h Alerta.h \
- constants.h
+build/Debug/Cygwin-Windows/main.o: main.c Utilizador.h Utils.h \
+ LP_Leitura.h
 
 Utilizador.h:
 
-Viagem.h:
+Utils.h:
 
-Alerta.h:
-
-constants.h:
+LP_Leitura.h:

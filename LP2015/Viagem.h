@@ -22,7 +22,8 @@ typedef struct viagem {
     unsigned int id;
     char localInicio[100];
     char localDestino[100];
-    //data/hora TODO
+    Date data;
+    Hora hora;
     unsigned short int duracaoEstimada;
     unsigned int criador;
     unsigned int participantes[100];

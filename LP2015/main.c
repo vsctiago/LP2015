@@ -15,17 +15,26 @@
 #include <stdlib.h>
 
 #include "Utilizador.h"
+#include "LP_Leitura.h"
 
 /*
  * 
  */
 int main(int argc, char** argv) {
 
-    Utilizador utilizadores[MAX_UTILIZADOR];
-    unsigned int cont;
-    validarUtilizador(&utilizadores, &cont);
+    Utilizador utilizadores[MAX_UTILIZADORES];
+    int contUtilizadores;
+    int contViagens;
+    
+    //validarUtilizador(&utilizadores, &cont);
 
-    printf( "%d", utilizadores[0].dataNascimento.ano);
+    //printf( "%d", utilizadores[0].dataNascimento.ano);
+    
+    Boolean val;
+    val = true;
+    printf("%d\n", val);
+    val = false;
+    printf("%d\n", val);
 
     return (EXIT_SUCCESS);
 }
