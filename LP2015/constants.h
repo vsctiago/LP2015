@@ -19,7 +19,7 @@
 #define TAM_MAX_ID 100
 #define TAM_MIN_IDADE 18
 #define TAM_MAX_IDADE 90
-#define MAX_UTILIZADOR 100
+#define MAX_UTILIZADOR 20
 #define DIA_MIN 1
 #define DIA_MAX 31
 #define MES_MIN 1

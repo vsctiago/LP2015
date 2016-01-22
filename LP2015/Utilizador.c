@@ -10,53 +10,49 @@
 #include <stdbool.h>
 
 Utilizador adicionarUtilizador() {
-    bool validar;
+    double validar = 0;
     Utilizador utilizador;
 
-    do {
-        validar = readString(*utilizador.nome, TAM_STRING_NOME, "Nome do utilizador: ");
-    } while (validar == false);
-    readInt(*utilizador.dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
-    readInt(*utilizador.dataNascimento.mes, MES_MIN, MES_MAX, "Mês: ");
-    readInt(*utilizador.dataNascimento.ano, ANO_MIN, ANO_MAX, "Ano: ");
-    do {
-        validar = readString(*utilizador.nome, MAX_PASS, "Password: ");
-    } while (validar == false);
+    readString(utilizador.nome, TAM_STRING_NOME, "Nome do utilizador: ");
+    readInt(&utilizador.dataNascimento.mes, MES_MIN, MES_MAX, "Mês: ");
+    readInt(&utilizador.dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
+    readInt(&utilizador.dataNascimento.ano, ANO_MIN, ANO_MAX, "Ano: ");
+    readString(&utilizador.nome, MAX_PASS, "Password: ");
 
-
+    return utilizador;
 }
 
 void validarUtilizador(Utilizador *utilizador, unsigned int *contadorUti) {
     int i;
     Utilizador temporario = adicionarUtilizador();
-    temporario.id = contadorUti;
+    temporario.id = *contadorUti + 1;
+
     for (i = 0; i < MAX_UTILIZADOR; i++) {
         if (utilizador[i].id == temporario.id) {
             printf("Já existe um utilizador com este Id.\n");
             break;
         }
     }
-    if (contadorUti == MAX_UTILIZADOR--) {
+    if (*contadorUti == MAX_UTILIZADOR) {
         printf("Não existe espaço na base de dados.");
-        break;
     }
 
-    *utilizador[contadorUti] = temporario;
+    utilizador[*contadorUti] = temporario;
     *contadorUti++;
 }
 
 void removerUtilizador(Utilizador *utilizador, unsigned int utilizadorId, unsigned int *contadorUti) {
     int i;
     for (i = 0; i < MAX_UTILIZADOR; i++) {
-        if (utilizador[i]->id == utilizadorId) {
-            utilizador[i] = NULL;
+        if (utilizador[i].id == utilizadorId) {
+            //  utilizador[i] = NULL;
             printf("Utilizador eliminado.\n");
-        } else if (i == MAX_UTILIZADOR--) {
+        } else if (i++ == MAX_UTILIZADOR) {
             printf("Utilizador não encontrado.\n");
         }
     }
     *contadorUti--;
-    //funcão de reorganização de array.
+
 }
 
 int procurarUtilizador(Utilizador utilizadores[], unsigned int idUtilizador) {
@@ -71,35 +67,37 @@ int procurarUtilizador(Utilizador utilizadores[], unsigned int idUtilizador) {
 }
 
 void alterarDados(Utilizador *utilizadores) {
-    unsigned int idUtilizador;
+    int idUtilizador;
     int posicao, opcao = 0;
     bool validar;
 
-    readInt(*idUtilizador, TAM_MIN_ID, TAM_MAX_ID, "Id utilizador alterar: \n");
+    readInt(idUtilizador, TAM_MIN_ID, TAM_MAX_ID, "Id utilizador alterar: \n");
     posicao = procurarUtilizador(utilizadores, idUtilizador);
     if (posicao == NULL) {
-        break;
-    }
-    printf("Escolha uma opcão: \n");
-    printf("1- Nome. \n");
-    printf("2- Data de aniversario. \n");
-    printf("3- Password. \n");
-    readInt(*opcao, TAM_MIN_ID, TAM_MAX_ID, "Escolha uma opçÃO: ");
+        printf("Nao foi encontrado o utlizador. \n");
+    } else {
+        printf("Escolha uma opcão: \n");
+        printf("1- Nome. \n");
+        printf("2- Data de aniversario. \n");
+        printf("3- Password. \n");
+        readInt(opcao, TAM_MIN_ID, TAM_MAX_ID, "Escolha uma opçÃO: ");
 
-    switch (opcao) {
-        case 1:
-            do {
-                validar = readString(*utilizadores[posicao].nome, TAM_STRING_NOME, "Nome do utilizador: ");
-            } while (validar == false);
-            printf("Nome alterado com sucesso\n");
-        case 2:
-            readInt(*utilizadores[posicao].dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
-            readInt(*utilizadores[posicao].dataNascimento.mes, MES_MIN, MES_MAX, "Mês: ");
-            readInt(*utilizadores[posicao].dataNascimento.ano, ANO_MIN, ANO_MAX, "Ano: ");
-        case 3:
-            do {
-                validar = readString(*utilizadores[posicao].nome, MAX_PASS, "Password: ");
-            } while (validar == false);
+        switch (opcao) {
+            case 1:
+                do {
+                    validar = readString(*utilizadores[posicao].nome, TAM_STRING_NOME, "Nome do utilizador: ");
+                } while (validar == false);
+                printf("Nome alterado com sucesso\n");
+            case 2:
+                readInt(&utilizadores[posicao].dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
+                readInt(&utilizadores[posicao].dataNascimento.mes, MES_MIN, MES_MAX, "Mês: ");
+                readInt(&utilizadores[posicao].dataNascimento.ano, ANO_MIN, ANO_MAX, "Ano: ");
+            case 3:
+                do {
+                    validar = readString(*utilizadores[posicao].nome, MAX_PASS, "Password: ");
+                } while (validar == false);
 
+        }
     }
 }
+

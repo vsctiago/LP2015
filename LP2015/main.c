@@ -14,10 +14,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "Utilizador.h"
+
 /*
  * 
  */
 int main(int argc, char** argv) {
+
+    Utilizador utilizadores[MAX_UTILIZADOR];
+    unsigned int cont;
+    validarUtilizador(&utilizadores, &cont);
+
+    printf( "%d", utilizadores[0].dataNascimento.ano);
 
     return (EXIT_SUCCESS);
 }

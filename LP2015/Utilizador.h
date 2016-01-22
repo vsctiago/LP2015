@@ -10,22 +10,20 @@
  *
  * Created on 30 de Dezembro de 2015, 13:20
  */
+
+#include "Viagem.h"
+#include "Alerta.h"
 #include"constants.h"
 #ifndef UTILIZADOR_H
 #define UTILIZADOR_H
 
-/**
- * Esta função lê os dados do novo utilizador
- * @return Utilizador 
- */
-Utilizador adicionarUtilizador();
 
 /**
  * Valida os dados recolhidos, se estiver tudo bem adiciona ao array de utilizadores
  * @param utilizador
  * @param contadorUti
  */
-void validarUtilizador(Utilizador *utilizador, unsigned int *contadorUti);
+
 
 /**
  * Função que remove o utilizador, segundo o id enviado.
@@ -33,7 +31,7 @@ void validarUtilizador(Utilizador *utilizador, unsigned int *contadorUti);
  * @param utilizadorId
  * @param contadorUti
  */
-void removerUtilizador(Utilizador *utilizador, unsigned int utilizadorId, unsigned int *contadorUti);
+
 
 /**
  * Procura o utilizador vaziado no id do utilizador.
@@ -41,30 +39,41 @@ void removerUtilizador(Utilizador *utilizador, unsigned int utilizadorId, unsign
  * @param idUtilizador
  * @return 
  */
-int procurarUtilizador(Utilizador utilizadores[], unsigned int idUtilizador) ;
 
 /**
  * Possibilita a alteração de dados de utilizadores já existentes.
  * @param utilizadores
  */
-void alterarDados(Utilizador *utilizadores);
+
+
+
+
+
 
 
 typedef struct date {
-    unsigned int dia;
-    unsigned int mes;
-    unsigned int ano;
-};
+    int dia;
+    int mes;
+    int ano;
+} Date;
 
 typedef struct utilizador {
-    unsigned int id;
-    char nome[];
-    date dataNascimento;
+    int id;
+    char nome[100];
+    Date dataNascimento;
     //data de nascimento
     char pass[MAX_PASS];
-    Viagem viagens[];
-    Alerta alertas[];
+    Viagem viagens[100];
+    Alerta alertas[100];
 } Utilizador;
+
+
+/**
+ * Esta função lê os dados do novo utilizador
+ * @return Utilizador 
+ */
+
+Utilizador adicionarUtilizador();
 
 #ifdef __cplusplus
 extern "C" {

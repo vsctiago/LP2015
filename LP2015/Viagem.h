@@ -20,16 +20,16 @@ typedef enum conforto {
 
 typedef struct viagem {
     unsigned int id;
-    char localInicio[];
-    char localDestino[];
+    char localInicio[100];
+    char localDestino[100];
     //data/hora TODO
     unsigned short int duracaoEstimada;
     unsigned int criador;
-    unsigned int participantes[];
-    unsigned short int lugaresDisponiveis[];
+    unsigned int participantes[100];
+    unsigned short int lugaresDisponiveis[100];
     Conforto conforto;
     double custoPorViajante;
-    bool realizada;
+    
 } Viagem;
 
 #ifdef __cplusplus

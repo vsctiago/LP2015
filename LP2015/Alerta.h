@@ -16,8 +16,8 @@
 
 typedef struct alerta {
     unsigned int id;
-    char mensagem[];
-    bool lido;
+    char mensagem[100];
+    int estado;
 } Alerta;
 
 #ifdef __cplusplus
