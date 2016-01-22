@@ -13,12 +13,19 @@
 
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
+#define MAX_PASS 20
 #define TAM_STRING_NOME 50
-#define TAM_MIN_ID 11
-#define TAM_MAX_ID 11
+#define TAM_MIN_ID 1
+#define TAM_MAX_ID 100
 #define TAM_MIN_IDADE 18
 #define TAM_MAX_IDADE 90
-
+#define MAX_UTILIZADOR 100
+#define DIA_MIN 1
+#define DIA_MAX 31
+#define MES_MIN 1
+#define MES_MAX 31
+#define ANO_MIN 1934
+#define ANO_MAX 2016
 #ifdef __cplusplus
 extern "C" {
 #endif

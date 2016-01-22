@@ -22,6 +22,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>enume.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -69,6 +70,8 @@
       </item>
       <item path="constants.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="enume.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
@@ -111,6 +114,8 @@
       <item path="Viagem.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="constants.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="enume.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
