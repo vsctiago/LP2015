@@ -13,6 +13,7 @@
 
 #ifndef UTILIZADOR_H
 #define UTILIZADOR_H
+
 #include "Alerta.h"
 #include "Utils.h"
 

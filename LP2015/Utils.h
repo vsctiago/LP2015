@@ -28,7 +28,6 @@
 #define MIN_IDADE 18
 #define MAX_IDADE 120
 
-
 #define DIA_MIN 1
 #define DIA_MAX 31
 #define MES_MIN 1
@@ -39,8 +38,8 @@
 #define HORA_MAX 23
 #define MINUTO_MIN 0
 #define MINUTO_MAX 59
-#define  MIN_DURACAO 10
-#define  MAX_DURACAO 1000
+#define MIN_DURACAO 10
+#define MAX_DURACAO 1000
 #define MIN_LUGARES 2
 #define MAX_LUGARES 10
 #define MIN_CONFORTO 1

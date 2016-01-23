@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include<time.h>
+#include <time.h>
 #include "Viagem.h"
 #include "Utilizador.h"
 #include "LP_Leitura.h"
