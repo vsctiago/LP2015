@@ -5,6 +5,7 @@
  */
 
 #include "Viagem.h"
+<<<<<<< HEAD
 #include "Utils.h"
 #include "LP_Leitura.h"
 #include "Utilizador.h"
@@ -133,4 +134,6 @@ void cancelarViagem(unsigned short int idUtilizador, Viagem *viagens, Utilizador
 
 
 }
+=======
+>>>>>>> 1a3740bbaf35defe22704f1fa49af1368c0ac29b
 

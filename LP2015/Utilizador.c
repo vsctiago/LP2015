@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include "Utilizador.h"
 #include "Utils.h"
-#include <stdbool.h>
 
 Utilizador adicionarUtilizador() {
     double validar = 0;
