@@ -85,7 +85,7 @@ void alterarDados(Utilizador *utilizadores) {
             case 1:
                 do {
                     validar = readString(*utilizadores[posicao].nome, TAM_NOME, "Nome do utilizador: ");
-                } while (validar == false);
+                } while (validar == FALSE);
                 printf("Nome alterado com sucesso\n");
             case 2:
                 readInt(&utilizadores[posicao].dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
@@ -94,7 +94,7 @@ void alterarDados(Utilizador *utilizadores) {
             case 3:
                 do {
                     validar = readString(*utilizadores[posicao].nome, TAM_PASS, "Password: ");
-                } while (validar == false);
+                } while (validar == FALSE);
 
         }
     }

@@ -13,15 +13,15 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
       <itemPath>Alerta.c</itemPath>
       <itemPath>LP_Leitura.c</itemPath>
       <itemPath>LP_Utils.c</itemPath>
       <itemPath>Utilizador.c</itemPath>
       <itemPath>Viagem.c</itemPath>
-    </logicalFolder>
-    <logicalFolder name="SourceFiles"
-                   displayName="Source Files"
-                   projectFiles="true">
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
