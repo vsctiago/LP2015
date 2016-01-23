@@ -14,11 +14,12 @@ void adicionarViagem(int id, Viagem *viagens, int *contViagens) {
     Viagem temporaria;
     Boolean validar = FALSE;
     int opcao = 0;
+    
     temporaria.id = *contViagens;
     temporaria.criador = id;
     printf("-----------Adicionar Viagem -----------------\n\n");
     readString(temporaria.localInicio, TAM_NOME, "Local de incio: ");
-    readString(temporaria.localInicio, TAM_NOME, "Local de fim: ");
+    readString(temporaria.localDestino, TAM_NOME, "Local de fim: ");
     printf("------ Data da viagem: \n");
     readInt(&temporaria.data.dia, DIA_MIN, DIA_MAX, "Dia: ");
     readInt(&temporaria.data.mes, MES_MIN, MES_MAX, "Mês: ");
@@ -29,7 +30,7 @@ void adicionarViagem(int id, Viagem *viagens, int *contViagens) {
     readShort(&temporaria.duracaoEstimada, MIN_DURACAO, MAX_DURACAO, "Duracao da viagem(minutos): ");
     readShort(&temporaria.lugaresDisponiveis, MIN_LUGARES, MAX_LUGARES, "Numero de lugares disponiveis: ");
 
-    readInt(&opcao, MIN_CONFORTO, MAX_CONFORTO, "Escolha o conforto do seu carro: \n1-Basico \n2- Confortavel\n3- Luxuoso ");
+    readInt(&opcao, MIN_CONFORTO, MAX_CONFORTO, "Escolha o conforto do seu carro: \n1- Basico \n2- Confortavel\n3- Luxuoso\nOpcao: ");
     if (opcao == 1)
         temporaria.conforto = 1;
     else if (opcao == 2)

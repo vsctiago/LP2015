@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
     //printf( "%d", utilizadores[0].dataNascimento.ano);
 
     adicionarViagem(1,&viagens,&contViagens);
+    listarViagens(1, viagens);
     //printf("ID: %hu\n", viagens[0].id);
     //printf("Local Inicio: %s\n", viagens[0].localInicio);
     //printf("Local Destino: %s\n", viagens[0].localDestino);

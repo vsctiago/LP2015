@@ -19,6 +19,7 @@
 
 typedef struct utilizador {
     unsigned short int id;
+    char username[TAM_USERNAME];
     char nome[TAM_NOME];
     Date dataNascimento;
     char password[TAM_PASS];

@@ -9,13 +9,14 @@
 #include "Utils.h"
 
 Utilizador adicionarUtilizador() {
-    double validar = 0;
+    Boolean validar = FALSE;
     Utilizador utilizador;
 
     readString(utilizador.nome, TAM_NOME, "Nome do utilizador: ");
     readInt(&utilizador.dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
     readInt(&utilizador.dataNascimento.mes, MES_MIN, MES_MAX, "Mês: ");
     readInt(&utilizador.dataNascimento.ano, ANO_MIN, ANO_MAX, "Ano: ");
+    readString(&utilizador.username, TAM_USERNAME, "Username: ");
     readString(&utilizador.password, TAM_PASS, "Password: ");
     utilizador.numeroDeAlertas = 0;
     return utilizador;
@@ -26,12 +27,6 @@ void validarUtilizador(Utilizador *utilizador, unsigned short int *contUtilizado
     Utilizador temporario = adicionarUtilizador();
     temporario.id = *contUtilizadores + 1;
 
-    for (i = 0; i < MAX_UTILIZADORES; i++) {
-        if (utilizador[i].id == temporario.id) {
-            printf("Já existe um utilizador com este Id.\n");
-            break;
-        }
-    }
     if (*contUtilizadores == MAX_UTILIZADORES) {
         printf("Não existe espaço na base de dados.");
     }
@@ -98,5 +93,47 @@ void alterarDados(Utilizador *utilizadores) {
 
         }
     }
+    
+    void criarFicheiroUtilizadores(Utilizador utilizadores[]) {
+
+        FILE *pUtilizadores = fopen("Utilizadores", "w");
+        if(pUtilizadores == (FILE *) NULL) {
+            puts("Couldn't create file.");
+        } else {
+            fwrite(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizadores);
+            fclose(pUtilizadores);
+        }
+    }
+    
+    void gravarFicheiroUtilizador(Utilizador utilizadores[]) {
+        FILE *pUtilizadores = fopen("Utilizadores", "w");
+        if(pUtilizadores == (FILE *) NULL) {
+            puts("Ficheiro não existe.");
+            puts("Não conseguiu gravar.");
+        } else {
+            fwrite(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizadores);
+            puts("Ficheiro gravado.");
+            fclose(pUtilizadores);
+        }
+    }
+    
+    Utilizador lerFicheiroUtilizador(Utilizador utilizadores[]) {
+    int i;
+    FILE *pUtilizador = fopen("Utilizadores", "r");
+    if(pUtilizador == (FILE *) NULL) {
+        puts("Ficheiro não existe.");
+        puts("Criando ficheiro...");
+        criarFicheiroUtilizadores(utilizadores);
+        gravarFicheiroUtilizador(utilizadores);
+        puts("File created");
+        gravarFicheiroUtilizador(utilizadores);
+    } else {
+        fread(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizador);
+        fclose(pUtilizador);
+    }
+}
+
+    
+    
 }
 
