@@ -1,10 +1,8 @@
 build/Debug/Cygwin-Windows/Utilizador.o: Utilizador.c Utilizador.h \
- Viagem.h Alerta.h constants.h
+ Alerta.h Utils.h
 
 Utilizador.h:
 
-Viagem.h:
-
 Alerta.h:
 
-constants.h:
+Utils.h:

@@ -13,23 +13,29 @@
 
 #ifndef VIAGEM_H
 #define VIAGEM_H
+#include "Utils.h"
 
 typedef enum conforto {
     BASICO, CONFORTAVEL, LUXUOSO
 } Conforto;
 
+typedef enum estado {
+    ACTIVA, REALIZADA, CANCELADA
+} Estado;
+
 typedef struct viagem {
-    unsigned int id;
+    unsigned short int id;
     char localInicio[100];
     char localDestino[100];
-    //data/hora TODO
+    Date data;
+    Hora hora;
     unsigned short int duracaoEstimada;
     unsigned int criador;
-    unsigned int participantes[100];
-    unsigned short int lugaresDisponiveis[100];
+    unsigned int participantes[MAX_PARTICIPANTES];
+    unsigned short int lugaresDisponiveis;
     Conforto conforto;
     double custoPorViajante;
-    
+    Estado estado;
 } Viagem;
 
 #ifdef __cplusplus

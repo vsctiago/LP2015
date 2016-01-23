@@ -14,10 +14,16 @@
 #ifndef ALERTA_H
 #define ALERTA_H
 
+#include "Utils.h"
+
+
+//ESTRUTURA ALERTA
+
 typedef struct alerta {
+    unsigned short int idViagem;
     unsigned int id;
     char mensagem[100];
-    int estado;
+    Boolean estado;
 } Alerta;
 
 #ifdef __cplusplus

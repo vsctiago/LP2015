@@ -9,15 +9,15 @@
       <itemPath>LP_Utils.h</itemPath>
       <itemPath>Utilizador.h</itemPath>
       <itemPath>Viagem.h</itemPath>
-      <itemPath>constants.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
-      <itemPath>Alarme.c</itemPath>
+      <itemPath>Alerta.c</itemPath>
       <itemPath>LP_Leitura.c</itemPath>
       <itemPath>LP_Utils.c</itemPath>
       <itemPath>Utilizador.c</itemPath>
+      <itemPath>Viagem.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -49,7 +49,7 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="Alarme.c" ex="false" tool="0" flavor2="0">
+      <item path="Alerta.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Alerta.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -65,9 +65,9 @@
       </item>
       <item path="Utilizador.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Viagem.h" ex="false" tool="3" flavor2="0">
+      <item path="Viagem.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="constants.h" ex="false" tool="3" flavor2="0">
+      <item path="Viagem.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -92,7 +92,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Alarme.c" ex="false" tool="0" flavor2="0">
+      <item path="Alerta.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Alerta.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -108,9 +108,9 @@
       </item>
       <item path="Utilizador.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Viagem.h" ex="false" tool="3" flavor2="0">
+      <item path="Viagem.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="constants.h" ex="false" tool="3" flavor2="0">
+      <item path="Viagem.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>

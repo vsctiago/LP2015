@@ -11,67 +11,19 @@
  * Created on 30 de Dezembro de 2015, 13:20
  */
 
-#include "Viagem.h"
-#include "Alerta.h"
-#include"constants.h"
 #ifndef UTILIZADOR_H
 #define UTILIZADOR_H
-
-
-/**
- * Valida os dados recolhidos, se estiver tudo bem adiciona ao array de utilizadores
- * @param utilizador
- * @param contadorUti
- */
-
-
-/**
- * Função que remove o utilizador, segundo o id enviado.
- * @param utilizador
- * @param utilizadorId
- * @param contadorUti
- */
-
-
-/**
- * Procura o utilizador vaziado no id do utilizador.
- * @param utilizadores
- * @param idUtilizador
- * @return 
- */
-
-/**
- * Possibilita a alteração de dados de utilizadores já existentes.
- * @param utilizadores
- */
-
-
-
-
-
-
-
-typedef struct date {
-    int dia;
-    int mes;
-    int ano;
-} Date;
+#include "Alerta.h"
+#include "Utils.h"
 
 typedef struct utilizador {
-    int id;
-    char nome[100];
+    unsigned short int id;
+    char nome[TAM_NOME];
     Date dataNascimento;
-    //data de nascimento
-    char pass[MAX_PASS];
-    Viagem viagens[100];
-    Alerta alertas[100];
+    char password[TAM_PASS];
+    Alerta alertas[MAX_ALERTAS];
+    unsigned int numeroDeAlertas;
 } Utilizador;
-
-
-/**
- * Esta função lê os dados do novo utilizador
- * @return Utilizador 
- */
 
 Utilizador adicionarUtilizador();
 

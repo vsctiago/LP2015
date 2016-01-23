@@ -13,19 +13,30 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include<time.h>
+#include "Viagem.h"
 #include "Utilizador.h"
+#include "LP_Leitura.h"
 
 /*
  * 
  */
 int main(int argc, char** argv) {
 
-    Utilizador utilizadores[MAX_UTILIZADOR];
-    unsigned int cont;
-    validarUtilizador(&utilizadores, &cont);
+    Utilizador utilizadores[MAX_UTILIZADORES];
+    Viagem viagens[MAX_VIAGENS];
+    int contUtilizadores=0;
+    int contViagens=0;
 
-    printf( "%d", utilizadores[0].dataNascimento.ano);
+    //validarUtilizador(&utilizadores, &cont);
+
+    //printf( "%d", utilizadores[0].dataNascimento.ano);
+
+    adicionarViagem(1,&viagens,&contViagens);
+
+
+    
+   
 
     return (EXIT_SUCCESS);
 }

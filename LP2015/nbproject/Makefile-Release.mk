@@ -35,10 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Alarme.o \
+	${OBJECTDIR}/Alerta.o \
 	${OBJECTDIR}/LP_Leitura.o \
 	${OBJECTDIR}/LP_Utils.o \
 	${OBJECTDIR}/Utilizador.o \
+	${OBJECTDIR}/Viagem.o \
 	${OBJECTDIR}/main.o
 
 
@@ -66,10 +67,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lp2015.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lp2015 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Alarme.o: Alarme.c 
+${OBJECTDIR}/Alerta.o: Alerta.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Alarme.o Alarme.c
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Alerta.o Alerta.c
 
 ${OBJECTDIR}/LP_Leitura.o: LP_Leitura.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -85,6 +86,11 @@ ${OBJECTDIR}/Utilizador.o: Utilizador.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Utilizador.o Utilizador.c
+
+${OBJECTDIR}/Viagem.o: Viagem.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Viagem.o Viagem.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
