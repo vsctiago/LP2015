@@ -9,7 +9,7 @@
 #include "LP_Leitura.h"
 #include "Utilizador.h"
 
-void adicionarViagem(int id, Viagem *viagens[], int *contViagens) {
+void adicionarViagem(int id, Viagem *viagens, int *contViagens) {
 
     Viagem temporaria;
     Boolean validar = FALSE;
@@ -17,8 +17,8 @@ void adicionarViagem(int id, Viagem *viagens[], int *contViagens) {
     temporaria.id = *contViagens;
     temporaria.criador = id;
     printf("-----------Adicionar Viagem -----------------\n\n");
-    readString(&temporaria.localInicio, TAM_NOME, "Local de incio: ");
-    readString(&temporaria.localInicio, TAM_NOME, "Local de fim: ");
+    readString(temporaria.localInicio, TAM_NOME, "Local de incio: ");
+    readString(temporaria.localInicio, TAM_NOME, "Local de fim: ");
     printf("------ Data da viagem: \n");
     readInt(&temporaria.data.dia, DIA_MIN, DIA_MAX, "Dia: ");
     readInt(&temporaria.data.mes, MES_MIN, MES_MAX, "Mês: ");
@@ -26,8 +26,8 @@ void adicionarViagem(int id, Viagem *viagens[], int *contViagens) {
     printf("------ Hora da viagem: \n");
     readInt(&temporaria.hora.hora, HORA_MIN, HORA_MAX, "Hora: ");
     readInt(&temporaria.hora.minuto, MINUTO_MIN, MINUTO_MAX, "Minutos: ");
-    readInt(&temporaria.duracaoEstimada, MIN_DURACAO, MAX_DURACAO, "Duracao da viagem(minutos): ");
-    readInt(&temporaria.lugaresDisponiveis, MIN_LUGARES, MAX_LUGARES, "Numero de lugares disponiveis: ");
+    readShort(&temporaria.duracaoEstimada, MIN_DURACAO, MAX_DURACAO, "Duracao da viagem(minutos): ");
+    readShort(&temporaria.lugaresDisponiveis, MIN_LUGARES, MAX_LUGARES, "Numero de lugares disponiveis: ");
 
     readInt(&opcao, MIN_CONFORTO, MAX_CONFORTO, "Escolha o conforto do seu carro: \n1-Basico \n2- Confortavel\n3- Luxuoso ");
     if (opcao == 1)
@@ -39,14 +39,11 @@ void adicionarViagem(int id, Viagem *viagens[], int *contViagens) {
     temporaria.estado = 1;
     readDouble(&temporaria.custoPorViajante, MIN_VALOR_VIAGEM, MAX_VALOR_VIAGEM, "Valor da viagem por pessoa:  ");
 
-    //validar a data
-    if (opcao = 1) {
-
-    } else {
-        printf("\n\n\n\n Viagens adicionada com sucesso!\n");
-        *viagens[*contViagens] = temporaria;
-        *contViagens++;
-    }
+    viagens[*contViagens] = temporaria;
+    *contViagens++;
+    printf("Viagens adicionada com sucesso!\n");
+        
+    //TODO: validar a data
 }
 
 void listarViagens(unsigned short int idUtilizador, Viagem viagens[]) {

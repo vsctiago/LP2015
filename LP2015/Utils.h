@@ -14,6 +14,9 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 //CONSTANTES
 #define MAX_UTILIZADORES 100
 #define MAX_VIAGENS 100
