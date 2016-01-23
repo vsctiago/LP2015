@@ -16,14 +16,17 @@
 
 #include "Utils.h"
 
+//ENUMERAÇÃO DE CONFORTO DO VEICULO
 typedef enum conforto {
     BASICO, CONFORTAVEL, LUXUOSO
 } Conforto;
 
+//ENUMERAÇÃO DE ESTADO DA VIAGEM
 typedef enum estado {
     ACTIVA, REALIZADA, CANCELADA
 } Estado;
 
+//ESTRUTURA DE VIAGEM
 typedef struct viagem {
     unsigned short int id;
     char localInicio[100];
