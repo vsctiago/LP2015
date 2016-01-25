@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
 
     Utilizador utilizadores[10];
     Viagem viagens[10];
-   int contUtilizadores = 0;
+    int contUtilizadores = 0;
     int contViagens = 0;
 
    addUtilizador(&utilizadores, &contUtilizadores);

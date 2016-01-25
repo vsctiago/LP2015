@@ -81,6 +81,14 @@ void listarViagemDetalhes(unsigned short int id, Viagem viagens[], int contV) {
             printf("Viagem Cancelada.\n");
     }
 }
+
+void cancelarViagem(Viagem *viagens, unsigned short int id,
+        int contV, Utilizador u) {
+    
+    
+}
+
+
 /*
 
 void listarViagens(Utilizador u, Viagem viagens[]) {
