@@ -18,13 +18,13 @@
 
 
 //ESTRUTURA ALERTA
-
 typedef struct alerta {
     unsigned short int idViagem;
     unsigned int id;
     char mensagem[100];
     Boolean estado;
 } Alerta;
+
 
 #ifdef __cplusplus
 extern "C" {

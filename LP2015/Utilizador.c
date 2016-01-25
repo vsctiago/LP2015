@@ -8,37 +8,43 @@
 #include "Utilizador.h"
 #include "Utils.h"
 
-Utilizador adicionarUtilizador() {
-    Boolean validar = FALSE;
-    Utilizador utilizador;
-
-    readString(utilizador.nome, TAM_NOME, "Nome do utilizador: ");
-    readInt(&utilizador.dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
-    readInt(&utilizador.dataNascimento.mes, MES_MIN, MES_MAX, "Mês: ");
-    readInt(&utilizador.dataNascimento.ano, ANO_MIN, ANO_MAX, "Ano: ");
-    readString(&utilizador.username, TAM_USERNAME, "Username: ");
-    readString(&utilizador.password, TAM_PASS, "Password: ");
-    utilizador.numeroDeAlertas = 0;
-    return utilizador;
+void addUtilizador(Utilizador *utilizadores, int *contU) {
+    Boolean val = FALSE;
+    
+    if (*contU == MAX_UTILIZADORES) {
+        printf("Erro: Não existe espaço na base de dados.");
+    } else {
+        readString(utilizadores[*contU].username, TAM_USERNAME, "Username: ");
+        readString(utilizadores[*contU].password, TAM_PASS, "Password: ");
+        readLong(&utilizadores[*contU].bi, MIN_BI, MAX_BI, "Número de BI: ");
+        readString(utilizadores[*contU].nome, TAM_NOME, "Nome: ");
+        readInt(&utilizadores[*contU].dataNascimento.dia, DIA_MIN, DIA_MAX, "Dia: ");
+        readInt(&utilizadores[*contU].dataNascimento.mes, MES_MIN, MES_MAX, "Mês: ");
+        readInt(&utilizadores[*contU].dataNascimento.ano, ANO_MIN, ANO_MAX, "Ano: ");
+        utilizadores[*contU].numeroDeAlertas = 0;
+        (*contU)++;
+    }
 }
 
+/*
 void validarUtilizador(Utilizador *utilizador, unsigned short int *contUtilizadores) {
     int i;
-    Utilizador temporario = adicionarUtilizador();
-    temporario.id = *contUtilizadores + 1;
+    //Utilizador temporario = adicionarUtilizador();
+    //temporario.bi = *contUtilizadores + 1;
 
     if (*contUtilizadores == MAX_UTILIZADORES) {
         printf("Não existe espaço na base de dados.");
     }
 
-    utilizador[*contUtilizadores] = temporario;
+    //utilizador[*contUtilizadores] = temporario;
     *contUtilizadores++;
 }
+*/
 
-void removerUtilizador(Utilizador *utilizador, unsigned int utilizadorId, unsigned int *contUtilizadores) {
+void removerUtilizador(Utilizador *utilizador, unsigned int bi, unsigned int *contUtilizadores) {
     int i;
     for (i = 0; i < MAX_UTILIZADORES; i++) {
-        if (utilizador[i].id == utilizadorId) {
+        if (utilizador[i].bi == bi) {
             //  utilizador[i] = NULL;
             printf("Utilizador eliminado.\n");
         } else if (i++ == MAX_UTILIZADORES) {
@@ -49,24 +55,37 @@ void removerUtilizador(Utilizador *utilizador, unsigned int utilizadorId, unsign
 
 }
 
-int procurarUtilizador(Utilizador utilizadores[], unsigned int idUtilizador) {
+int procurarUtilizador(Utilizador utilizadores[], int contU, long int bi) {
     int i;
-    for (i = 0; i < MAX_UTILIZADORES; i++) {
-        if (utilizadores[i].id == idUtilizador) {
+    
+    for (i = 0; i < contU; i++) {
+        if (utilizadores[i].bi == bi)
             return i;
-        }
     }
-    printf("Utilizador não encontrado!\n");
+    printf("Erro: Utilizador não encontrado!\n");
     return EOF;
 }
+    
+void listarDadosUtilizador(Utilizador utilizadores[], int contU, long int bi) {
+    int pos;
+    if((pos = procurarUtilizador(utilizadores, contU, bi)) != EOF) {
+        printf("BI: %ld\n", utilizadores[pos].bi);
+        printf("Username: %s\n", utilizadores[pos].username);
+        printf("Password: %s\n", utilizadores[pos].password);
+        printf("Nome: %s\n", utilizadores[pos].nome);
+        printf("Data de Nascimento: %d/%d/%d\n", utilizadores[pos].dataNascimento.dia, utilizadores[pos].dataNascimento.mes, utilizadores[pos].dataNascimento.ano);
+        printf("Número Alertas: %d", utilizadores[pos].numeroDeAlertas);
+    }
+}
 
-void alterarDados(Utilizador *utilizadores) {
-    int idUtilizador;
+/*
+void alterarDados(Utilizador *utilizadores, int *contU) {
+    long int bi;
     int posicao, opcao = 0;
     Boolean validar;
 
-    readInt(idUtilizador, MIN_ID_UTILIZADORES, MAX_ID_UTILIZADORES, "Id utilizador alterar: \n");
-    posicao = procurarUtilizador(utilizadores, idUtilizador);
+    readLong(bi, MIN_BI, MAX_BI, "BI do Utilizador a alterar: \n");
+    posicao = procurarUtilizador(utilizadores, *contU, bi);
     if (posicao == EOF) {
         printf("Nao foi encontrado o utlizador. \n");
     } else {
@@ -93,31 +112,33 @@ void alterarDados(Utilizador *utilizadores) {
 
         }
     }
+}
+*/
     
-    void criarFicheiroUtilizadores(Utilizador utilizadores[]) {
+void criarFicheiroUtilizadores(Utilizador utilizadores[]) {
 
-        FILE *pUtilizadores = fopen("Utilizadores", "w");
-        if(pUtilizadores == (FILE *) NULL) {
-            puts("Couldn't create file.");
-        } else {
-            fwrite(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizadores);
-            fclose(pUtilizadores);
-        }
+    FILE *pUtilizadores = fopen("Utilizadores", "w");
+    if(pUtilizadores == (FILE *) NULL) {
+        puts("Couldn't create file.");
+    } else {
+        fwrite(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizadores);
+        fclose(pUtilizadores);
     }
+}
     
-    void gravarFicheiroUtilizador(Utilizador utilizadores[]) {
-        FILE *pUtilizadores = fopen("Utilizadores", "w");
-        if(pUtilizadores == (FILE *) NULL) {
-            puts("Ficheiro não existe.");
-            puts("Não conseguiu gravar.");
-        } else {
-            fwrite(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizadores);
-            puts("Ficheiro gravado.");
-            fclose(pUtilizadores);
-        }
+void gravarFicheiroUtilizador(Utilizador utilizadores[]) {
+    FILE *pUtilizadores = fopen("Utilizadores", "w");
+    if(pUtilizadores == (FILE *) NULL) {
+        puts("Ficheiro não existe.");
+        puts("Não conseguiu gravar.");
+    } else {
+        fwrite(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizadores);
+        puts("Ficheiro gravado.");
+        fclose(pUtilizadores);
     }
+}
     
-    Utilizador lerFicheiroUtilizador(Utilizador utilizadores[]) {
+Utilizador lerFicheiroUtilizador(Utilizador utilizadores[]) {
     int i;
     FILE *pUtilizador = fopen("Utilizadores", "r");
     if(pUtilizador == (FILE *) NULL) {
@@ -131,9 +152,5 @@ void alterarDados(Utilizador *utilizadores) {
         fread(utilizadores, sizeof(Utilizador), MAX_UTILIZADORES, pUtilizador);
         fclose(pUtilizador);
     }
-}
-
-    
-    
 }
 

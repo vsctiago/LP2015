@@ -17,17 +17,17 @@
 #include "Alerta.h"
 #include "Utils.h"
 
+//ESTRUTURA UTILIZADOR
 typedef struct utilizador {
-    unsigned short int id;
+    long int bi;
     char username[TAM_USERNAME];
     char nome[TAM_NOME];
     Date dataNascimento;
     char password[TAM_PASS];
     Alerta alertas[MAX_ALERTAS];
-    unsigned int numeroDeAlertas;
+    int numeroDeAlertas;
 } Utilizador;
 
-Utilizador adicionarUtilizador();
 
 #ifdef __cplusplus
 extern "C" {

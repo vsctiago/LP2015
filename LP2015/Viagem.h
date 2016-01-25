@@ -15,6 +15,7 @@
 #define VIAGEM_H
 
 #include "Utils.h"
+#include "Utilizador.h"
 
 //ENUMERAÇÃO DE CONFORTO DO VEICULO
 typedef enum conforto {
@@ -29,16 +30,16 @@ typedef enum estado {
 //ESTRUTURA DE VIAGEM
 typedef struct viagem {
     unsigned short int id;
-    char localInicio[100];
-    char localDestino[100];
+    char localInicio[TAM_LOCAL];
+    char localDestino[TAM_LOCAL];
     Date data;
     Hora hora;
     unsigned short int duracaoEstimada;
-    unsigned int criador;
-    unsigned int participantes[MAX_PARTICIPANTES];
+    Utilizador criador;
+    Utilizador participantes[MAX_PARTICIPANTES];
     unsigned short int lugaresDisponiveis;
     Conforto conforto;
-    double custoPorViajante;
+    float custoPorViajante;
     Estado estado;
 } Viagem;
 

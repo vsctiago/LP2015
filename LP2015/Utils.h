@@ -25,12 +25,16 @@
 
 #define MIN_ID_UTILIZADORES 0
 #define MAX_ID_UTILIZADORES 9999
+#define MIN_BI 10000000
+#define MAX_BI 99999999
 #define TAM_USERNAME 20
 #define TAM_PASS 20
 #define TAM_NOME 50
 #define TAM_MENSAGEM 100
 #define MIN_IDADE 18
 #define MAX_IDADE 120
+
+#define TAM_LOCAL 100
 
 #define DIA_MIN 1
 #define DIA_MAX 31
@@ -48,8 +52,8 @@
 #define MAX_LUGARES 10
 #define MIN_CONFORTO 1
 #define MAX_CONFORTO 3
-#define MIN_VALOR_VIAGEM 1
-#define MAX_VALOR_VIAGEM 100
+#define MIN_CUSTO 0
+#define MAX_CUSTO 100
 
 //ESTRUTURA BOOLEAN
 typedef enum boolean {
